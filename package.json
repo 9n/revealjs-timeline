@@ -1,0 +1,42 @@
+{
+  "name": "revealjs-timeline",
+  "version": "0.0.1",
+  "description": "Timeline plugin for revealjs",
+  "main": "dist/timeline.esm.js",
+  "css": "dist/white.css",
+  "type": "module",
+  "targets": {
+    "main": {
+      "source": "src/timeline.js"
+    },
+    "css": {
+      "source": "src/assets/white.scss"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-scss": "cp src/assets/timeline.scss dist",
+    "build": "npm run copy-scss && parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9n/revealjs-timeline.git"
+  },
+  "keywords": [
+    "timeline",
+    "revealjs"
+  ],
+  "author": "Jan Cheng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/9n/revealjs-timeline/issues"
+  },
+  "homepage": "https://github.com/9n/revealjs-timeline#readme",
+  "dependencies": {
+    "reveal.js": "^4.3.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.5.0",
+    "parcel": "^2.5.0"
+  }
+}

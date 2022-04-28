@@ -1,0 +1,126 @@
+$timelineBgColor: lighten($mainColor, 70%);
+$timelineMainColor: $mainColor;
+$timelineHlColor: $linkColor;
+$timelineLineColor: $timelineMainColor;
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline button {
+    background: transparent;
+    border    : none;
+    cursor    : pointer;
+    outline   : none;
+}
+
+.timeline {
+    white-space: nowrap;
+    overflow-x : hidden;
+}
+
+.timeline ol {
+    font-size : 0;
+    width     : 100vw;
+    padding   : 250px 0;
+    transition: all 1s;
+}
+
+.timeline ol li {
+    position       : relative;
+    display        : inline-block;
+    list-style-type: none;
+    width          : 160px;
+    height         : 3px;
+    background     : $timelineLineColor;
+}
+
+.timeline ol li:first-child {
+    width: 40px;
+}
+
+.timeline ol li:last-child {
+    width: 280px;
+}
+
+.timeline ol li:not(:first-child) {
+    margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+    content      : '';
+    position     : absolute;
+    top          : 50%;
+    left         : calc(100% + 1px);
+    bottom       : 0;
+    width        : 12px;
+    height       : 12px;
+    transform    : translateY(-50%);
+    border-radius: 50%;
+    background   : $timelineHlColor;
+}
+
+.timeline ol li div {
+    position   : absolute;
+    left       : calc(100% + 7px);
+    width      : 280px;
+    padding    : 12px;
+    font-size  : 1rem;
+    white-space: normal;
+    color      : $timelineMainColor;
+    background : $timelineBgColor;
+}
+
+.timeline ol li div::before {
+    content     : '';
+    position    : absolute;
+    top         : 100%;
+    left        : 0;
+    width       : 0;
+    height      : 0;
+    border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+    top      : -16px;
+    transform: translateY(-100%);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+    top         : 100%;
+    border-width: 8px 8px 0 0;
+    border-color: $timelineBgColor transparent transparent transparent;
+}
+
+.timeline ol li:nth-child(even) div {
+    top: 16px;
+}
+
+.timeline ol li:nth-child(even) div::before {
+    top         : -8px;
+    border-width: 8px 0 0 8px;
+    border-color: transparent transparent transparent $timelineBgColor;
+}
+
+.timeline time {
+    display      : block;
+    font-size    : 1.2rem;
+    font-weight  : bold;
+    margin-bottom: 8px;
+}
+
+
+/* TIMELINE ARROWS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline .arrows {
+    display        : flex;
+    justify-content: center;
+    margin-bottom  : 20px;
+}
+
+.timeline .arrows .arrow__prev {
+    margin-right: 20px;
+}
+
+.timeline .disabled {
+    opacity: .5;
+}
